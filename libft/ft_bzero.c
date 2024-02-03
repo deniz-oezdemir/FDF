@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:08:04 by denizozd         ###   ########.fr       */
+/*   Created: 2023/11/10 10:46:46 by denizozd          #+#    #+#             */
+/*   Updated: 2023/11/16 16:46:25 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
-#include <fcntl.h>
-
-typedef struct
+void	ft_bzero(void *s, size_t n)
 {
-	int	x;
-	int	y;
-	int	**mtx;
-}		fdf;
-
-void	read_map(char *file, fdf *dat);
-
-#endif
+	ft_memset(s, 0, n);
+}

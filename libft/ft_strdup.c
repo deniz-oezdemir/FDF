@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:08:04 by denizozd         ###   ########.fr       */
+/*   Created: 2023/11/13 17:04:38 by denizozd          #+#    #+#             */
+/*   Updated: 2024/02/03 10:52:38 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
-#include <fcntl.h>
-
-typedef struct
+char	*ft_strdup(const char *s)
 {
-	int	x;
-	int	y;
-	int	**mtx;
-}		fdf;
+	char	*dst;
+	size_t	l;
 
-void	read_map(char *file, fdf *dat);
-
-#endif
+	if (!s || !*s)
+		return (NULL);
+	l = ft_strlen(s);
+	dst = (char *)(malloc(sizeof(char) * (l + 1)));
+	if (dst == NULL)
+		return (NULL);
+	dst[l] = '\0';
+	while (l--)
+		dst[l] = s[l];
+	return (dst);
+}

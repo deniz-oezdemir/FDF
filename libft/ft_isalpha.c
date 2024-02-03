@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:08:04 by denizozd         ###   ########.fr       */
+/*   Created: 2023/11/09 15:27:28 by denizozd          #+#    #+#             */
+/*   Updated: 2023/11/09 15:33:52 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
-#include <fcntl.h>
-
-typedef struct
+int	ft_isalpha(int c)
 {
-	int	x;
-	int	y;
-	int	**mtx;
-}		fdf;
-
-void	read_map(char *file, fdf *dat);
-
-#endif
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
+}

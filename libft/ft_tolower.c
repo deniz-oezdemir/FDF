@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:08:04 by denizozd         ###   ########.fr       */
+/*   Created: 2023/11/10 16:11:00 by denizozd          #+#    #+#             */
+/*   Updated: 2023/11/10 16:13:12 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
-#include <fcntl.h>
-
-typedef struct
+int	ft_tolower(int c)
 {
-	int	x;
-	int	y;
-	int	**mtx;
-}		fdf;
-
-void	read_map(char *file, fdf *dat);
-
-#endif
+	if (c >= 'A' && c <= 'Z')
+		return (c - 'A' + 'a');
+	return (c);
+}

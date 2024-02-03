@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:08:04 by denizozd         ###   ########.fr       */
+/*   Created: 2023/11/16 14:13:31 by denizozd          #+#    #+#             */
+/*   Updated: 2023/11/20 19:41:26 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
-#include <fcntl.h>
-
-typedef struct
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	x;
-	int	y;
-	int	**mtx;
-}		fdf;
+	unsigned int	i;
 
-void	read_map(char *file, fdf *dat);
-
-#endif
+	i = 0;
+	if (s && f)
+	{
+		while (*s)
+			f(i++, s++);
+	}
+}
+/* similar to strmapi, but applies f on the original string */

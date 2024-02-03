@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   print_uns.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:08:04 by denizozd         ###   ########.fr       */
+/*   Created: 2023/11/24 17:23:15 by denizozd          #+#    #+#             */
+/*   Updated: 2023/11/25 22:50:46 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
-#include <fcntl.h>
-
-typedef struct
+int	print_uns(unsigned int n)
 {
-	int	x;
-	int	y;
-	int	**mtx;
-}		fdf;
+	int	i;
 
-void	read_map(char *file, fdf *dat);
-
-#endif
+	if (n > 9)
+	{
+		i = print_uns(n / 10);
+		ft_putchar_fd((n % 10) + '0', 1);
+		return (i + 1);
+	}
+	else
+	{
+		ft_putchar_fd(n + '0', 1);
+		return (1);
+	}
+}
