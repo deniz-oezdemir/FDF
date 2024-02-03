@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:30:18 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:29:22 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_rows(char *file)
 
 	rows = 0;
 	fd = open(file, O_RDONLY, 0);
-	while (line = get_next_line(fd))
+	while (line = get_next_line(fd, 0))
 	{
 		rows++;
 		free(line);
@@ -36,8 +36,8 @@ int	get_clms(char *file)
 	int		clms;
 
 	fd = open(file, O_RDONLY, 0);
-	
-	line = get_next_line(fd);
+
+	line = get_next_line(fd, 1);
 	clms = ft_count_words(line, ' ');
 	free(line);
 	close(fd);
@@ -74,10 +74,13 @@ void	read_map(char *file, fdf *dat)
 		dat->mtx[i++] = (int *)malloc(sizeof(int) * (dat->x + 1));
 	fd = open(file, O_RDONLY, 0);
 	i = 0;
-	while (line = get_next_line(fd)) //fill mtx row by row
+	line = get_next_line(fd, 1);
+	while (line) //fill mtx row by row
 	{
 		fill_row(dat->mtx[i], line);
 		free(line);
+		if(line = get_next_line(fd, 0))
+			i++;
 	}
 	dat->mtx[i] = 0;
 	close(fd);

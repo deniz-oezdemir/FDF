@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 13:17:16 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:49:13 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,17 @@ char	*get_next_line(int fd, int reset)
 {
 	static char	*excess;
 	char		*line;
-	char		start;
 
 	//if(reset == 1)
 		//reset excess to point to beginning of first line
 	if(reset)
-		start = read(fd, excess, 1);
+		if(read(fd, excess, 1) == -1)
+			ft_error();
 	//if does not work: read returns 0 if end of file reached
 
 	//Closing and reopening the file will reset the file position, allowing you to read from the beginning again.
-	
+
+	//to do: rest my getnextline to how it was originally and research other implementation option
 	line = read_buffer(excess, fd);
 	excess = extract_excess(line);
 	return (line);

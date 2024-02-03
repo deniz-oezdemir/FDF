@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:34:52 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 12:18:18 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:22:32 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		print_hex(unsigned int n, int format);
 void	ft_error(void);
 
 /*	get_next_line	*/
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int reset);
 char	*read_buffer(char *line, int fd);
 char	*extract_excess(char *line);
 
