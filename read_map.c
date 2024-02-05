@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 14:29:22 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:46:03 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ int	get_rows(char *file)
 
 	rows = 0;
 	fd = open(file, O_RDONLY, 0);
-	while (line = get_next_line(fd, 0))
+	line = get_next_line(fd);
+	while (line)
 	{
 		rows++;
 		free(line);
+		line = get_next_line(fd);
 	}
+	free(line);
 	close(fd);
 	return (rows);
 }
@@ -37,7 +40,7 @@ int	get_clms(char *file)
 
 	fd = open(file, O_RDONLY, 0);
 
-	line = get_next_line(fd, 1);
+	line = get_next_line(fd);
 	clms = ft_count_words(line, ' ');
 	free(line);
 	close(fd);
@@ -74,14 +77,15 @@ void	read_map(char *file, fdf *dat)
 		dat->mtx[i++] = (int *)malloc(sizeof(int) * (dat->x + 1));
 	fd = open(file, O_RDONLY, 0);
 	i = 0;
-	line = get_next_line(fd, 1);
+	line = get_next_line(fd);
 	while (line) //fill mtx row by row
 	{
 		fill_row(dat->mtx[i], line);
 		free(line);
-		if(line = get_next_line(fd, 0))
-			i++;
+		line = get_next_line(fd);
+		i++;
 	}
+	free(line);
 	dat->mtx[i] = 0;
 	close(fd);
 }

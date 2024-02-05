@@ -6,12 +6,12 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 10:10:53 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:32:46 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*	game plan
-1. read map and store in 2-dimensional array (gnl, atoi)
+1. read map and store in 2-dimensional array (gnl, atoi) - done
 2. function to draw a line (bresenham algo)
 3. function to draw all lines
 4. add 3D
@@ -37,7 +37,8 @@ int	main(int ac, char **av)
 		j = 0;
 		while(j < dat->x)
 		{
-			ft_printf("%3d", dat->mtx[i][j]);
+			ft_printf("%d", dat->mtx[i][j]);
+			ft_printf("\t");
 			j++;
 		}
 		ft_printf("\n");
