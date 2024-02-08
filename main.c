@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/05 18:31:41 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/08 11:00:50 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@
 7. mem leaks	*/
 
 #include "fdf.h"
+
+int	deal_key(int key, fdf *dat)
+{
+	ft_printf("%d\n", key);
+	if (key == 65263)
+		dat->mv_x += 10;
+	if (key == 65261)
+		dat->mv_x -= 10;
+	if (key == 65262)
+		dat->mv_y += 10;
+	if (key == 65264)
+		dat->mv_y -= 10;
+	mlx_clear_window(dat->mlx_ptr, dat->win_ptr);
+	draw_map(dat);
+	return (0);
+}
 
 int	main(int ac, char **av)
 {
@@ -58,7 +74,7 @@ int	main(int ac, char **av)
 */
 
 	draw_map(dat);
-	//mlx_key_hook(dat->win_ptr, deal_key, NULL);
+	mlx_key_hook(dat->win_ptr, deal_key, dat); //does not work
 	mlx_loop(dat->mlx_ptr);
 
 	return(0);

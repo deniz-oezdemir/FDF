@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:43:43 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/05 18:30:10 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/08 10:43:10 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ static float	get_max(float num1, float num2)
 		return (num2);
 }
 
+void	isometric(float *x, float *y, int *z)
+{
+
+	*x = (*x - *y) * cos(0.8);
+	*y = (*x + *y) * sin(0.8) - *z;
+
+}
 void	draw_line(float x1, float y1, float x2, float y2, fdf *dat)
 {
 	float	x_incr;
@@ -34,10 +41,11 @@ void	draw_line(float x1, float y1, float x2, float y2, fdf *dat)
 	int		max_abs_incr;
 
 	/*	color	*/
-	int z;
-	z = dat->mtx[(int)y1][(int)x1]; //access value in matrix by row then column
-
-	if (z == 10)
+	int z1;
+	int z2;
+	z1 = dat->mtx[(int)y1][(int)x1]; //access value in matrix by row then column
+	z2 = dat->mtx[(int)y2][(int)x2];
+	if (z1 == 10 || z2 == 10)
     	dat->clr = 0xff0000;
 	else
     	dat->clr = 0x00ff00;
@@ -47,6 +55,16 @@ void	draw_line(float x1, float y1, float x2, float y2, fdf *dat)
 	y1 *= dat->zoom;
 	x2 *= dat->zoom;
 	y2 *= dat->zoom;
+
+	/*	3D	*/
+	isometric(&x1, &y1, &z1);
+	isometric(&x2, &y2, &z2);
+
+	/*	move	*/
+	x1 += 200;
+	x2 += 200;
+	y1 += 200;
+	y2 += 200;
 
 	/*	Bresenham's line algorithm	*/
 	x_incr = x2 - x1;

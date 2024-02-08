@@ -8,7 +8,7 @@ SRCS = main.c read_map.c draw_line.c
 
 OBJS = $(SRCS:.c=.o)
 MLX_LIB = mlx/
-MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11 -lm #check necessity of these links
 
 all: $(NAME)
 
