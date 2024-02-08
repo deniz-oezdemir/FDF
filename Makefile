@@ -4,7 +4,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFTPATH = ./libft
 
-SRCS = main.c read_map.c draw_line.c
+SRCS = main.c get_map.c draw_line.c
 
 OBJS = $(SRCS:.c=.o)
 MLX_LIB = mlx/

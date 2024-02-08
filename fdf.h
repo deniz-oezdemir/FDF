@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/08 10:53:23 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:57:53 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,58 @@
 # include <mlx.h>
 # include <fcntl.h>
 # include <math.h>
+# include <stdio.h>
+
+
+typedef struct s_mlx
+{
+	void	*init;
+	void	*win;
+	void	*img;
+}	t_mlx;
+
+typedef struct s_map
+{
+	int		height;
+	int		width;
+	int		**mtx;
+	int		coordinate_y;
+	int		coordinate_z;
+	int		y0;
+	int		y1;
+	int		z0;
+	int		z1;
+	int		zoom;
+	int		isometric;
+	double	x_value;
+	double	angle_y;
+	double	angle_z;
+}	t_map;
+
+typedef struct s_image
+{
+	char	*data;
+	int		size;
+	int		endian;
+	int		bpp;
+}				t_img;
 
 typedef struct
 {
-	int	x;
-	int	y;
-	int	**mtx;
-	int	zoom;
-	int	clr;
-	int	mv_x;
-	int	mv_y;
+	int		red;
+	int		green;
+	int		blue;
+}	t_col;
 
-	void	*mlx_ptr; //rename better: mlx_init
-	void	*win_ptr; //rename better: mlx_win
-}		fdf;
+typedef struct s_fdf
+{
+	t_mlx	mlx;
+	t_map	map;
+	t_img	img;
+	t_col	col;
+}	t_fdf;
 
-void	read_map(char *file, fdf *dat);
-void	draw_line(float x1, float y1, float x2, float y2, fdf *dat);
-void	draw_map(fdf *dat);
-void	isometric(float *x, float *y, int *z);
+
+void	get_map(char *file, t_fdf *fdf);
 
 #endif

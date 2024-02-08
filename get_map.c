@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/05 11:46:03 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/08 14:16:47 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	get_clms(char *file)
 	int		clms;
 
 	fd = open(file, O_RDONLY, 0);
-
 	line = get_next_line(fd);
 	clms = ft_count_words(line, ' ');
 	free(line);
@@ -49,43 +48,42 @@ int	get_clms(char *file)
 
 void	fill_row(int *mtx, char *line)
 {
-	char **alts; //altitudes
+	char **vals; //altitudes
 	int i;
 
-	alts = ft_split(line, ' ');
+	vals = ft_split(line, ' ');
 	i = 0;
-	while(alts[i])
+	while(vals[i])
 	{
-		mtx[i] = ft_atoi(alts[i]);
-		free(alts[i]);
+		mtx[i] = ft_atoi(vals[i]);
+		free(vals[i]);
 		i++;
 	}
-	free(alts);
-
+	free(vals);
 }
-void	read_map(char *file, fdf *dat)
+void	get_map(char *file, t_fdf *fdf)
 {
 	int		i;
 	int		fd;
 	char	*line;
 
-	dat->y = get_rows(file); //call y rows?
-	dat->x = get_clms(file); //call x clms?
-	dat->mtx = (int **)malloc(sizeof(int *) * (dat->y + 1));
+	fdf->map.height = get_rows(file);
+	fdf->map.width = get_clms(file);
+	fdf->map.mtx = (int **)malloc(sizeof(int *) * (fdf->map.height + 1));
 	i = 0;
-	while(i < dat->y)
-		dat->mtx[i++] = (int *)malloc(sizeof(int) * (dat->x + 1));
+	while(i < fdf->map.height)
+		fdf->map.mtx[i++] = (int *)malloc(sizeof(int) * (fdf->map.width + 1));
 	fd = open(file, O_RDONLY, 0);
 	i = 0;
 	line = get_next_line(fd);
 	while (line) //fill mtx row by row
 	{
-		fill_row(dat->mtx[i], line);
+		fill_row(fdf->map.mtx[i], line);
 		free(line);
 		line = get_next_line(fd);
 		i++;
 	}
 	free(line);
-	dat->mtx[i] = 0;
+	fdf->map.mtx[i] = 0;
 	close(fd);
 }
