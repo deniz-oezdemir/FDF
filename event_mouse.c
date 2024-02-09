@@ -6,13 +6,13 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:41:22 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 16:18:04 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:51:01 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	close_frame(t_fdf *data) //close window
+int	close_win(t_fdf *data)
 {
 	(void)data;
 	free_data(data);

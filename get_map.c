@@ -6,13 +6,13 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 15:44:14 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:05:03 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	get_rows(char *file)
+int	get_rows(char *file, t_fdf *data)
 {
 	int		fd;
 	char	*line;
@@ -21,7 +21,7 @@ int	get_rows(char *file)
 	rows = 0;
 	fd = open(file, O_RDONLY, 0);
 	if (fd < 0)
-		error_file();
+		error_file(data, fd);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -35,7 +35,7 @@ int	get_rows(char *file)
 	return (rows);
 }
 
-int	get_clms(char *file)
+int	get_clms(char *file, t_fdf *data)
 {
 	int		fd;
 	char	*line;
@@ -43,7 +43,7 @@ int	get_clms(char *file)
 
 	fd = open(file, O_RDONLY, 0); //necessary? check is already above with rows
 	if (fd < 0)
-		error_file();
+		error_file(data, fd);
 	line = get_next_line(fd);
 	if (!line)
 		error_input();
@@ -53,36 +53,36 @@ int	get_clms(char *file)
 	return (clms);
 }
 
-void	fill_row(int *z_row, char *line)
+void	fill_row(int *row, char *line)
 {
-	char **vals; //altitudes
+	char **vals;
 	int i;
 
 	vals = ft_split(line, ' ');
 	i = 0;
 	while(vals[i])
 	{
-		z_row[i] = ft_atoi(vals[i]);
+		row[i] = ft_atoi(vals[i]);
 		free(vals[i]);
 		i++;
 	}
 	free(vals);
 }
-void	get_map(char *file, t_fdf *fdf) //call fdf data
+void	get_map(char *file, t_fdf *data)
 {
 	int		i;
 	int		fd;
 	char	*line;
 
-	fdf->height = get_rows(file);
-	fdf->width = get_clms(file);
-	fdf->z_mtx = (int **)malloc(sizeof(int *) * (fdf->height + 1));
+	data->width = get_clms(file, data); //first width then height works but not the other way around
+	data->height = get_rows(file, data);
+	data->z_mtx = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
-	while(i < fdf->height)
-		fdf->z_mtx[i++] = (int *)malloc(sizeof(int) * (fdf->width + 1));
+	while(i < data->height)
+		data->z_mtx[i++] = (int *)malloc(sizeof(int) * (data->width + 1));
 	fd = open(file, O_RDONLY, 0);
 	if (fd < 0) //necessary? check is already above with rows
-		error_file();
+		error_file(data, fd);
 	i = 0;
 	while (1) //fill mtx row by row
 	{
@@ -90,7 +90,7 @@ void	get_map(char *file, t_fdf *fdf) //call fdf data
 		ft_printf("%s\n", line); // to be deleted
 		if (!line)
 			break ;
-		fill_row(fdf->z_mtx[i], line);
+		fill_row(data->z_mtx[i], line);
 		free(line);
 		i++;
 	}

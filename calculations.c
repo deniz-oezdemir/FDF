@@ -6,48 +6,48 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:45:32 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 13:24:54 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:35:07 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	isometric(t_fdf *data, int z, int z1) // vars
+void	isometric(t_fdf *data, int z1, int z2)
 {
-	data->param_x = (data->param_x - data->param_y) * cos(data->degree);
-	data->param_y = (data->param_x + data->param_y) * sin(data->degree) - z;
-	data->param_x1 = (data->param_x1 - data->param_y1) * cos(data->degree);
-	data->param_y1 = (data->param_x1 + data->param_y1) * sin(data->degree) - z1;
+	data->x1 = (data->x1 - data->y1) * cos(data->dgr);
+	data->x2 = (data->x2 - data->y2) * cos(data->dgr);
+	data->y1 = (data->x1 + data->y1) * sin(data->dgr) - z1;
+	data->y2 = (data->x2 + data->y2) * sin(data->dgr) - z2;
 }
 
-void	zoom(t_fdf *data) // vars
+void	zoom(t_fdf *data)
 {
-	data->param_x = data->param_x * data->zoom;
-	data->param_y = data->param_y * data->zoom;
-	data->param_x1 = data->param_x1 * data->zoom;
-	data->param_y1 = data->param_y1 * data->zoom;
+	data->x1 = data->x1 * data->zoom;
+	data->x2 = data->x2 * data->zoom;
+	data->y1 = data->y1 * data->zoom;
+	data->y2 = data->y2 * data->zoom;
 }
 
-void	shift(t_fdf *data) // vars
+void	translate(t_fdf *data)
 {
-	data->param_x += data->shift_x;
-	data->param_y += data->shift_y;
-	data->param_x1 += data->shift_x;
-	data->param_y1 += data->shift_y;
+	data->x1 += data->d_x;
+	data->x2 += data->d_x;
+	data->y1 += data->d_y;
+	data->y2 += data->d_y;
 }
 
-void	color(t_fdf *data, int z1, int z2)
+void	clr(t_fdf *data, int z1, int z2)
 {
-	if (!(z2 || z1) && data->color_flag == 1)
-		data->color = 0x12cc00;
-	if ((z2 || z1) && data->color_flag == 1)
-		data->color = 0xc02e2e;
-	if (!(z2 || z1) && data->color_flag == 2)
-		data->color = 0x2000ff;
-	if ((z2 || z1) && data->color_flag == 2)
-		data->color = 0xdfff00;
-	if (!(z2 || z1) && data->color_flag == 3)
-		data->color = 0x3fd1d1;
-	if ((z2 || z1) && data->color_flag == 3)
-		data->color = 0xed33ff;
+	if (!(z2 || z1) && data->clr_flg == 1)
+		data->clr = 0x12cc00;
+	if ((z2 || z1) && data->clr_flg == 1)
+		data->clr = 0xc02e2e;
+	if (!(z2 || z1) && data->clr_flg == 2)
+		data->clr = 0x2000ff;
+	if ((z2 || z1) && data->clr_flg == 2)
+		data->clr = 0xdfff00;
+	if (!(z2 || z1) && data->clr_flg == 3)
+		data->clr = 0x3fd1d1;
+	if ((z2 || z1) && data->clr_flg == 3)
+		data->clr = 0xed33ff;
 }

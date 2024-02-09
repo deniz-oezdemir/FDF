@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 16:02:19 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:39:37 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ int	main(int ac, char **av)
 	}
 
 	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, 1920, 1080, "FDF");
-	data->img_ptr = mlx_new_image(data->mlx_ptr, 1920, 1080);
+	data->win_ptr = mlx_new_window(data->mlx_ptr, W_W, W_H, "FDF");
+	data->img_ptr = mlx_new_image(data->mlx_ptr, W_W, W_H);
 	data->img_data = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel,
-			&data->line_length, &data->endian);
+			&data->line_len, &data->endian);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
 	init_vars(data);
 	draw_map(data);
-	mouse_handler(data);
-	mlx_key_hook(data->win_ptr, keyboard_handler, data);
+	handle_mouse(data);
+	mlx_key_hook(data->win_ptr, handle_keys, data);
 	mlx_loop(data->mlx_ptr);
 	return (0);
 }

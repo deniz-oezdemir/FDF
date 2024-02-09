@@ -6,46 +6,44 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 20:12:57 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 13:29:19 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:50:10 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "fdf.h"
 
-/*	rewrite all of this	*/
-
-void	key_shift(int key, t_fdf *data)
+void	key_translate(int key, t_fdf *data)
 {
-	if (key == KEY_S)
-		data->shift_y += 10;
-	else if (key == KEY_W)
-		data->shift_y -= 10;
-	else if (key == KEY_D)
-		data->shift_x += 10;
+	if (key == KEY_W)
+		data->d_y -= 15;
+	else if (key == KEY_S)
+		data->d_y += 15;
 	else if (key == KEY_A)
-		data->shift_x -= 10;
+		data->d_x -= 15;
+	else if (key == KEY_D)
+		data->d_x += 15;
 }
 
-void	key_degree(int key, t_fdf *data)
+void	key_dgr(int key, t_fdf *data)
 {
 	if (key == KEY_Q)
-		data->degree += 0.1;
+		data->dgr += 0.1;
 	else if (key == KEY_E)
-		data->degree -= 0.1;
+		data->dgr -= 0.1;
 }
 
-void	key_color(int key, t_fdf *data) //make random inverted colors instead
+void	key_clr(int key, t_fdf *data)
 {
-	if (key == KEY_P && data->color_flag < 3)
-		data->color_flag += 1;
+	if (key == KEY_P && data->clr_flg < 3)
+		data->clr_flg += 1;
 	else
-		data->color_flag = 1;
+		data->clr_flg = 1;
 }
 
 void	key_zoom(int key, t_fdf *data)
 {
 	if (key == KEY_Z)
-		data->zoom += 1;
+		data->zoom += 2;
 	else if (key == KEY_X)
-		data->zoom -= 1;
+		data->zoom -= 2;
 }
