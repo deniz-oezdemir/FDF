@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:43:43 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/08 19:54:09 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 09:17:48 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	draw_line(t_fdf *data)
 
 
 	zoom(data);
-	/*color(data, z1, z2, data->color_flag);*/
+	color(data, z1, z2, data->color_flag);
 	isometric(data, z1, z2);
 	shift(data);
 

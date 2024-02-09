@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/08 19:53:04 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 10:10:06 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_vars(t_fdf *data) //rename all vars and initialize to other values (al
 	data->shift_y = 400;
 	data->zoom = 30;
 	data->degree = 0.8;
-	data->color = 0xffffff;
+	data->color = 0x00ff00;
 	data->param_y = 0;
 	data->param_x = 0;
 	data->param_x1 = 0;

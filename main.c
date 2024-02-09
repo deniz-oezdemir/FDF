@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/08 20:08:32 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 09:48:30 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
 	init_vars(data);
 	draw_map(data);
-	/*mouse_handler(data);*/
+	mouse_handler(data);
 	mlx_key_hook(data->win_ptr, keyboard_handler, data);
 	mlx_loop(data->mlx_ptr);
 	return (0);

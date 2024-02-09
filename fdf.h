@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/08 20:14:37 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 09:43:34 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
+# include "keys.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -57,6 +58,7 @@ void	set_coords(t_fdf *data, int i, int j, int f);
 void	isometric(t_fdf *data, int z, int z1);
 void	zoom(t_fdf *data) ;
 void	shift(t_fdf *data);
+void	color(t_fdf *data, int z1, int z2, int f);
 
 void	mouse_handler(t_fdf *data);
 int		keyboard_handler(int key, t_fdf *data);
@@ -66,5 +68,8 @@ void	key_shift(int key, t_fdf *data);
 void	key_degree(int key, t_fdf *data);
 void	key_color(int key, t_fdf *data);
 
+void	key_zoom(int key, t_fdf *data);
+int		mouse_release(int key, int x, int y, t_fdf *data);
+int		close_frame(t_fdf *data);
 
 #endif
