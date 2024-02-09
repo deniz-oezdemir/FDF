@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 20:12:57 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 10:46:37 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:29:19 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,10 @@ void	key_degree(int key, t_fdf *data)
 
 void	key_color(int key, t_fdf *data) //make random inverted colors instead
 {
-	if (key == KEY_P)
+	if (key == KEY_P && data->color_flag < 3)
+		data->color_flag += 1;
+	else
 		data->color_flag = 1;
-	else if (key == KEY_O)
-		data->color_flag = 2;
-	else if (key == KEY_I)
-		data->color_flag = 3;
 }
 
 void	key_zoom(int key, t_fdf *data)

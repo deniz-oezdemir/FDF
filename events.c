@@ -6,28 +6,18 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 09:57:48 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:19:32 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	mouse_handler(t_fdf *data)
+void	mouse_handler(t_fdf *data) //handle mouse
 {
 	mlx_hook(data->win_ptr, 17, 1L << 17, close_frame, data);
 }
 
-void	handle_event(t_fdf *data) //rewrite differently
-{
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
-	data->img_ptr = mlx_new_image(data->mlx_ptr, 1920, 1080);
-	data->img_data = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel,
-			&data->line_length, &data->endian);
-	draw_map(data);
-}
-
-int	keyboard_handler(int key, t_fdf *data) //rewrite differently, different order
+int	keyboard_handler(int key, t_fdf *data) //rewrite differently, different order //handle keys
 {
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		key_shift(key, data);
@@ -41,9 +31,19 @@ int	keyboard_handler(int key, t_fdf *data) //rewrite differently, different orde
 		key_zoom(key, data);
 	else if (key == KEY_ESC)
 	{
-		//free_data(data); // check with valgrind
+		free_data(data);
 		exit(0);
 	}
 	handle_event(data);
 	return (0);
+}
+
+void	handle_event(t_fdf *data) //rewrite differently
+{
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+	data->img_ptr = mlx_new_image(data->mlx_ptr, 1920, 1080);
+	data->img_data = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel,
+			&data->line_length, &data->endian);
+	draw_map(data);
 }

@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 11:29:59 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:02:19 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,24 @@ int	main(int ac, char **av)
 		error_input();
 	data = (t_fdf *)malloc(sizeof(t_fdf));
 	get_map(av[1], data);
+
+	/*	print matrix containing map (test to be deleted)	*/
+	int i;
+	int j;
+	i = 0;
+	while(i < data->height)
+	{
+		j = 0;
+		while(j < data->width)
+		{
+			ft_printf("%d", data->z_mtx[i][j]);
+			ft_printf("\t");
+			j++;
+		}
+		ft_printf("\n");
+		i++;
+	}
+
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1920, 1080, "FDF");
 	data->img_ptr = mlx_new_image(data->mlx_ptr, 1920, 1080);

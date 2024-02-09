@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                        :+:      :+:    :+:   */
+/*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:43:43 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 09:17:48 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:07:54 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-
-static float	get_abs(float num)
+static float	get_abs(float num) // rename x y
 {
 	if (num < 0)
 		num = -num;
 	return (num);
 }
 
-static float	get_max(float num1, float num2)
+static float	get_max(float num1, float num2) //rename x y 
 {
 	if (num1 >= num2)
 		return (num1);
@@ -50,14 +49,10 @@ void	draw_line(t_fdf *data)
 
 	z1 = data->z_mtx[(int)data->param_y][(int)data->param_x]; //access value in matrix by row then column
 	z2 = data->z_mtx[(int)data->param_y1][(int)data->param_x1]; //rename params to x1, x2, y1, y2
-
-
 	zoom(data);
-	color(data, z1, z2, data->color_flag);
+	color(data, z1, z2);
 	isometric(data, z1, z2);
 	shift(data);
-
-
 	x_incr = data->param_x1 - data->param_x;
 	y_incr = data->param_y1 - data->param_y;
 	max_abs_incr = get_max(get_abs(x_incr), get_abs(y_incr));

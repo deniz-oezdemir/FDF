@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 11:34:10 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:44:14 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ int	get_rows(char *file)
 	fd = open(file, O_RDONLY, 0);
 	if (fd < 0)
 		error_file();
-	line = get_next_line(fd);
-	while (line)
+	while (1)
 	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
 		rows++;
 		free(line);
-		line = get_next_line(fd);
 	}
 	free(line);
 	close(fd);
@@ -44,6 +45,8 @@ int	get_clms(char *file)
 	if (fd < 0)
 		error_file();
 	line = get_next_line(fd);
+	if (!line)
+		error_input();
 	clms = ft_count_words(line, ' ');
 	free(line);
 	close(fd);
@@ -65,7 +68,7 @@ void	fill_row(int *z_row, char *line)
 	}
 	free(vals);
 }
-void	get_map(char *file, t_fdf *fdf)
+void	get_map(char *file, t_fdf *fdf) //call fdf data
 {
 	int		i;
 	int		fd;
@@ -81,15 +84,16 @@ void	get_map(char *file, t_fdf *fdf)
 	if (fd < 0) //necessary? check is already above with rows
 		error_file();
 	i = 0;
-	line = get_next_line(fd);
-	while (line) //fill mtx row by row
+	while (1) //fill mtx row by row
 	{
+		line = get_next_line(fd);
+		ft_printf("%s\n", line); // to be deleted
+		if (!line)
+			break ;
 		fill_row(fdf->z_mtx[i], line);
 		free(line);
-		line = get_next_line(fd);
 		i++;
 	}
 	free(line);
-	fdf->z_mtx[i] = 0;
 	close(fd);
 }

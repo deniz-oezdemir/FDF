@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 11:31:41 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:37:42 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_vars(t_fdf *data) //rename all vars and initialize to other values (al
 	data->param_x = 0;
 	data->param_x1 = 0;
 	data->param_y1 = 0;
-	data->color_flag = 1;
+	data->color_flag = 0;
 }
 
 void	set_coords(t_fdf *data, int i, int j, int f)
@@ -48,10 +48,27 @@ void	error_input() // arguments
 	exit(1);
 }
 
-void	error_file()
+void	error_file(t_fdf *data, int fd) //update arguments everywhere else !
 {
 	perror("Error");
+	close(fd);
+	free(data);
 	exit(1);
+}
+
+void	free_data(t_fdf *data) // where used? !
+{
+	int	i;
+
+	i = 0;
+	while (i < data->height)
+	{
+		free(data->z_mtx[i++]);
+	}
+	free(data->z_mtx);
+	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	free(data);
 }
 
 

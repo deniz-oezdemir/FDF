@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:45:32 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 10:56:26 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:24:54 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@ void	shift(t_fdf *data) // vars
 	data->param_y1 += data->shift_y;
 }
 
-void	color(t_fdf *data, int z1, int z2, int flag)
+void	color(t_fdf *data, int z1, int z2)
 {
-	if (!(z2 || z1) && flag == 1)
+	if (!(z2 || z1) && data->color_flag == 1)
 		data->color = 0x12cc00;
-	if ((z2 || z1) && flag == 1)
+	if ((z2 || z1) && data->color_flag == 1)
 		data->color = 0xc02e2e;
-	if (!(z2 || z1) && flag == 2)
+	if (!(z2 || z1) && data->color_flag == 2)
 		data->color = 0x2000ff;
-	if ((z2 || z1) && flag == 2)
+	if ((z2 || z1) && data->color_flag == 2)
 		data->color = 0xdfff00;
-	if (!(z2 || z1) && flag == 3)
+	if (!(z2 || z1) && data->color_flag == 3)
 		data->color = 0x3fd1d1;
-	if ((z2 || z1) && flag == 3)
+	if ((z2 || z1) && data->color_flag == 3)
 		data->color = 0xed33ff;
 }
