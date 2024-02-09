@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 19:07:24 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:28:16 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ void	init_vars(t_fdf *data)
 	data->x1 = 0;
 	data->x2 = 0;
 	data->y2 = 0;
-
 }
 
-void	error_input()
+void	error_input(void)
 {
 	ft_printf("Error: Invalid input\n");
 	exit(1);
@@ -53,5 +52,3 @@ void	free_data(t_fdf *data)
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	free(data);
 }
-
-

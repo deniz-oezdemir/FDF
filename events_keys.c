@@ -6,11 +6,11 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 20:12:57 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 18:50:10 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:28:00 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fdf.h"
+#include "fdf.h"
 
 void	key_translate(int key, t_fdf *data)
 {

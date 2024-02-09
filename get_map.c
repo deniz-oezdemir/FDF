@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 19:05:03 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:25:41 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	get_map(char *file, t_fdf *data)
 	while (1) //fill mtx row by row
 	{
 		line = get_next_line(fd);
-		ft_printf("%s\n", line); // to be deleted
+		ft_printf("%s\n", line); //to be deleted
 		if (!line)
 			break ;
 		fill_row(data->z_mtx[i], line);
