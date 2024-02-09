@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 09:48:30 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 11:29:59 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_fdf	*data;
 
 	if (ac != 2 || !av[1])
-		perror("Error: unexpected input");
+		error_input();
 	data = (t_fdf *)malloc(sizeof(t_fdf));
 	get_map(av[1], data);
 	data->mlx_ptr = mlx_init();

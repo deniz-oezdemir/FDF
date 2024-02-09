@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:45:32 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 10:46:34 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 10:56:26 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	color(t_fdf *data, int z1, int z2, int flag)
 	if (!(z2 || z1) && flag == 1)
 		data->color = 0x12cc00;
 	if ((z2 || z1) && flag == 1)
-		data->color = 0xed33ff;
+		data->color = 0xc02e2e;
 	if (!(z2 || z1) && flag == 2)
 		data->color = 0x2000ff;
 	if ((z2 || z1) && flag == 2)
@@ -49,5 +49,5 @@ void	color(t_fdf *data, int z1, int z2, int flag)
 	if (!(z2 || z1) && flag == 3)
 		data->color = 0x3fd1d1;
 	if ((z2 || z1) && flag == 3)
-		data->color = 0xc02e2e;
+		data->color = 0xed33ff;
 }

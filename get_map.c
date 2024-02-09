@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/08 18:53:06 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/09 11:34:10 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	get_rows(char *file)
 
 	rows = 0;
 	fd = open(file, O_RDONLY, 0);
+	if (fd < 0)
+		error_file();
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -38,7 +40,9 @@ int	get_clms(char *file)
 	char	*line;
 	int		clms;
 
-	fd = open(file, O_RDONLY, 0);
+	fd = open(file, O_RDONLY, 0); //necessary? check is already above with rows
+	if (fd < 0)
+		error_file();
 	line = get_next_line(fd);
 	clms = ft_count_words(line, ' ');
 	free(line);
@@ -74,6 +78,8 @@ void	get_map(char *file, t_fdf *fdf)
 	while(i < fdf->height)
 		fdf->z_mtx[i++] = (int *)malloc(sizeof(int) * (fdf->width + 1));
 	fd = open(file, O_RDONLY, 0);
+	if (fd < 0) //necessary? check is already above with rows
+		error_file();
 	i = 0;
 	line = get_next_line(fd);
 	while (line) //fill mtx row by row
