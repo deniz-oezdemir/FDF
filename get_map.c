@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 19:29:00 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/10 09:44:55 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int	get_rows(char *file, t_fdf *data)
 	fd = open(file, O_RDONLY, 0);
 	if (fd < 0)
 		error_file(data, fd);
+	ft_printf("get_rows\n"); //to be deleted
 	while (1)
 	{
 		line = get_next_line(fd);
+		ft_printf("%s\n", line); //to be deleted
 		if (!line)
 			break ;
 		rows++;
@@ -45,6 +47,8 @@ int	get_clms(char *file, t_fdf *data)
 	if (fd < 0)
 		error_file(data, fd);
 	line = get_next_line(fd);
+	ft_printf("get_clmns\n"); //to be deleted
+	ft_printf("%s\n", line); //to be deleted
 	if (!line)
 		error_input();
 	clms = ft_count_words(line, ' ');
@@ -84,6 +88,7 @@ void	get_map(char *file, t_fdf *data)
 	if (fd < 0) //necessary? check is already above with rows
 		error_file(data, fd);
 	i = 0;
+	ft_printf("get_map\n"); //to be deleted
 	while (1) //fill mtx row by row
 	{
 		line = get_next_line(fd);
