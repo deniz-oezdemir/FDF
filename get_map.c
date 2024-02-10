@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 09:44:55 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/10 13:32:25 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,15 @@ int	get_clms(char *file, t_fdf *data)
 		error_input();
 	clms = ft_count_words(line, ' ');
 	free(line);
+	/*while (1) //go to end of file to mitigate static ptr in gnl
+	{
+		line = get_next_line(fd);
+		ft_printf("%s\n", line); //to be deleted
+		if (!line)
+			break ;
+		free(line);
+	}
+	free(line);*/
 	close(fd);
 	return (clms);
 }
@@ -78,8 +87,8 @@ void	get_map(char *file, t_fdf *data)
 	int		fd;
 	char	*line;
 
-	data->width = get_clms(file, data); //first width then height works but not the other way around
 	data->height = get_rows(file, data);
+	data->width = get_clms(file, data); //first width then height works but not the other way around -> fixeb through running clms through whole file
 	data->z_mtx = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while(i < data->height)
@@ -99,6 +108,5 @@ void	get_map(char *file, t_fdf *data)
 		free(line);
 		i++;
 	}
-	free(line);
 	close(fd);
 }
