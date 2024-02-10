@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 08:35:25 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:23:56 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "libft/libft.h"
-# include "mlx.h"
+# include "mlx/mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -41,6 +41,7 @@ typedef struct s_fdf
 {
 	int		width;
 	int		height;
+	t_list	*head;
 	int		**z_mtx;
 	int		d_x;
 	int		d_y;
@@ -62,10 +63,13 @@ typedef struct s_fdf
 }			t_fdf;
 
 /*	get_map.c	*/
+/*
 void	get_map(char *file, t_fdf *data);
 int		get_rows(char *file, t_fdf *data);
 int		get_clms(char *file, t_fdf *data);
 void	fill_row(int *row, char *line);
+*/
+void	file_to_strs(char *file, t_fdf *data);
 
 /*	draw_map.c	*/
 void	draw_map(t_fdf *data);

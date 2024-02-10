@@ -6,12 +6,41 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 13:32:25 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:32:19 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+
+void	file_to_strs(char *file, t_fdf *data) //file_to_lst
+{
+	int		fd;
+	char	*line;
+	t_list	*lst;
+
+	fd = open(file, O_RDONLY, 0);
+	if (fd < 0)
+		error_file(data, fd);
+	ft_printf("file_to_strs\n"); //to be deleted
+
+	line = get_next_line(fd);
+	lst = ft_lstnew(line);
+	ft_lstadd_back(&(data->head), lst);
+	ft_printf("%s\n", data->head->content);
+
+	while (0)
+	{
+
+
+		/*ft_lstadd_back(&(data->head), );
+		if (ft_lstlast((data->head)->content) == NULL)
+			break ;*/
+	}
+	close(fd);
+}
+
+/*
 int	get_rows(char *file, t_fdf *data)
 {
 	int		fd;
@@ -53,7 +82,7 @@ int	get_clms(char *file, t_fdf *data)
 		error_input();
 	clms = ft_count_words(line, ' ');
 	free(line);
-	/*while (1) //go to end of file to mitigate static ptr in gnl
+	while (1) //go to end of file to mitigate static ptr in gnl
 	{
 		line = get_next_line(fd);
 		ft_printf("%s\n", line); //to be deleted
@@ -61,7 +90,7 @@ int	get_clms(char *file, t_fdf *data)
 			break ;
 		free(line);
 	}
-	free(line);*/
+	free(line);
 	close(fd);
 	return (clms);
 }
@@ -110,3 +139,4 @@ void	get_map(char *file, t_fdf *data)
 	}
 	close(fd);
 }
+*/
