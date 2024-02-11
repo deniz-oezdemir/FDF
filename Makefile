@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/11 22:25:40 by denizozd          #+#    #+#              #
+#    Updated: 2024/02/11 22:32:23 by denizozd         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = fdf
 LIBFTNAME = libft.a
 CC = cc
@@ -8,7 +20,7 @@ SRCS = main.c get_map.c draw_map.c utils.c calculations.c events.c events_keys.c
 
 OBJS = $(SRCS:.c=.o)
 MLX_LIB = mlx/
-MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11 -lm #check necessity of these links
+MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11 -lm
 
 all: $(NAME)
 
