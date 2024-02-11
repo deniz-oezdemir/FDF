@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 15:06:02 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:17:07 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_fdf
 {
 	int		width;
 	int		height;
-	t_list	*list;
+	t_list	*z_list;
 	int		**z_mtx;
 	int		d_x;
 	int		d_y;

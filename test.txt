@@ -1,10 +1,14 @@
 file_to_list
-0 1 2
-1 2 3
-2 3 4
-(null)
-0 1 2
-1 2 3
-2 3 4
-height: 3
+new node's content: 0 0 0
+last node's content: 0 0 0
+new node's content: 0 0 1
+last node's content: 0 0 1
+test last node's content: 0 0 1
+
+list size: 2
+height: 2
 width: 3
+before: first node's content: 0 0 0
+before: second node's content: 0 0 1
+after: first node's content: 0 0 0
+after: second node's content: 0 0 1

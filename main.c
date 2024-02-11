@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 14:52:54 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:37:39 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(int ac, char **av)
 	data->img_data = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel,
 			&data->line_len, &data->endian);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
-	init_vars(data);
 	draw_map(data);
 	handle_mouse(data);
 	mlx_key_hook(data->win_ptr, handle_keys, data);

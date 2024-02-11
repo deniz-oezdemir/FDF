@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:34:52 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 11:08:44 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 16:03:12 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	*read_buffer(char *line, int fd);
 char	*extract_excess(char *line);
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 23 /*22 perfect for basictest.fdf*/
+#  define BUFFER_SIZE 6 /*22 perfect for basictest.fdf*/
 # endif
 
 #endif
