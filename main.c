@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 20:46:54 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 10:01:08 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int ac, char **av)
 	if (ac != 2 || !av[1])
 		error_input();
 	data = (t_fdf *)malloc(sizeof(t_fdf));
-	file_to_strs(av[1], data);
+	init_vars(data);
+	file_to_list(av[1], data);
 
 //	get_map(av[1], data);
 

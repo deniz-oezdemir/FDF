@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:34:52 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 09:04:13 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 11:08:44 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <fcntl.h>
 
 /*	Libc functions	*/
 int		ft_isalpha(int c);
@@ -93,7 +94,7 @@ char	*read_buffer(char *line, int fd);
 char	*extract_excess(char *line);
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 23 /*22 perfect for basictest.fdf*/
 # endif
 
 #endif

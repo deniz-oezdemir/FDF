@@ -6,38 +6,51 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 21:32:19 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 12:25:30 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 
-void	file_to_strs(char *file, t_fdf *data) //file_to_lst
+void	file_to_list(char *file, t_fdf *data)
 {
 	int		fd;
-	char	*line;
-	t_list	*lst;
+	char	*line = NULL;
+	t_list	*new = NULL;
 
 	fd = open(file, O_RDONLY, 0);
 	if (fd < 0)
 		error_file(data, fd);
-	ft_printf("file_to_strs\n"); //to be deleted
-
-	line = get_next_line(fd);
-	lst = ft_lstnew(line);
-	ft_lstadd_back(&(data->head), lst);
-	ft_printf("%s\n", data->head->content);
-
-	while (0)
+	//ft_printf("file_to_list\n"); //to be deleted
+	while (1)
 	{
-
-
-		/*ft_lstadd_back(&(data->head), );
-		if (ft_lstlast((data->head)->content) == NULL)
-			break ;*/
+		line = get_next_line(fd);
+		new = ft_lstnew(line);
+		ft_lstadd_back(&(data->list), new);
+		ft_printf("%s", ft_lstlast(data->list)->content); //to be deleted
+		if (ft_lstlast(data->list)->content == NULL)
+			break ;
 	}
+	ft_printf("\n");
+	ft_printf("%d\n", get_height(data));
 	close(fd);
+}
+
+int	get_height(t_fdf *data)
+{
+	t_list	*tmp;
+	int		height;
+
+	height = 0;
+	tmp = data->list;
+	while (tmp->next && tmp->next->content)
+	{
+		height++;
+		ft_printf("%s", tmp->content); //to be deleted
+		tmp = tmp->next;
+	}
+	return (height);
 }
 
 /*

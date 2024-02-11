@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:56:11 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 12:17:30 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 11:20:13 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*dst;
 	size_t	len1;
 	size_t	len2;
-
-	if (!s1 && !s2)
+	
+	/*if (!s1 && !s2)
 		return (NULL);
 	if (!s1 && s2)
 		return (ft_strdup(s2));
 	if (s1 && !s2)
-		return (ft_strdup(s1));
+		return (ft_strdup(s1));*/
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	dst = (char *)malloc(sizeof(char) * (len1 + len2 + 1));

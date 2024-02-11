@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 21:23:56 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 11:46:46 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_fdf
 {
 	int		width;
 	int		height;
-	t_list	*head;
+	t_list	*list;
 	int		**z_mtx;
 	int		d_x;
 	int		d_y;
@@ -69,7 +69,8 @@ int		get_rows(char *file, t_fdf *data);
 int		get_clms(char *file, t_fdf *data);
 void	fill_row(int *row, char *line);
 */
-void	file_to_strs(char *file, t_fdf *data);
+void	file_to_list(char *file, t_fdf *data);
+int	get_height(t_fdf *data);
 
 /*	draw_map.c	*/
 void	draw_map(t_fdf *data);

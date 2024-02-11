@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/10 11:40:16 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 11:29:21 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_vars(t_fdf *data)
 	data->x1 = 0;
 	data->x2 = 0;
 	data->y2 = 0;
+	data->list = NULL; //initialize also the other ptrs to NULL
 }
 
 void	error_input(void)
@@ -44,6 +45,7 @@ void	free_data(t_fdf *data)
 {
 	int	i;
 
+	ft_lstclear(&(data->list), &free);
 	i = 0;
 	while (i < data->height)
 		free(data->z_mtx[i++]);
