@@ -8,7 +8,8 @@ test last node's content: 0 0 1
 list size: 2
 height: 2
 width: 3
-before: first node's content: 0 0 0
-before: second node's content: 0 0 1
-after: first node's content: 0 0 0
-after: second node's content: 0 0 1
+before lstclear: first node's content: 0 0 0
+before lstclear: last node's content: 0 0 1
+
+before lstclear: z_list ptr: -944336032
+after lstclear: z_list ptr: 0

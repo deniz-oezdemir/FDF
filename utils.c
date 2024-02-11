@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 17:41:01 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:58:11 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ void	error_file(t_fdf *data, int fd)
 void	free_data(t_fdf *data)
 {
 	int	i;
-
+	ft_printf("before lstclear: first node's content: %s", data->z_list->content);
+	ft_printf("before lstclear: last node's content: %s", ft_lstlast(data->z_list)->content);
+	ft_printf("before lstclear: z_list ptr: %d\n", data->z_list);
 	ft_lstclear(&(data->z_list), &free);
-	//ft_printf("after lstclear: last node's content: %s\n", ft_lstlast(data->z_list)->content);
+	ft_printf("after lstclear: z_list ptr: %d\n", data->z_list);
 	i = 0;
 	while (i < data->height)
 		free(data->z_mtx[i++]);

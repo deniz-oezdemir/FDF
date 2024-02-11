@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 17:49:36 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:53:39 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void	list_to_matrix(t_fdf *data)
 	ft_printf("height: %d\n", data->height);
 	get_width(data);
 	ft_printf("width: %d\n", data->width);
-	ft_printf("before: first node's content: %s", data->z_list->content);
-	ft_printf("before: second node's content: %s", data->z_list->next->content);
 	data->z_mtx = (int **)malloc(sizeof(int *) * (data->height));
 	i = 0;
 	while(i < data->height)
@@ -87,8 +85,6 @@ void	list_to_matrix(t_fdf *data)
 		tmp = tmp->next;
 		i++;
 	}
-	ft_printf("after: first node's content: %s", data->z_list->content);
-	ft_printf("after: second node's content: %s", data->z_list->next->content);
 }
 
 void	fill_row(int *z_mtx_row, char *z_str)
