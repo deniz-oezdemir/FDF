@@ -6,12 +6,13 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 18:32:27 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 18:33:09 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 18:42:19 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*	frees input string (difference to ft_strjoin)	*/
 char	*gnl_strjoin(char *s1, char const *s2)
 {
 	char	*dst;

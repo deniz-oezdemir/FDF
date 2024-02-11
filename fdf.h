@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 15:17:07 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:34:52 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,19 +85,19 @@ void	clr(t_fdf *data, int z1, int z2);
 void	handle_mouse(t_fdf *data);
 int		handle_keys(int key, t_fdf *data);
 
-/* events_keys.c	*/
+/*	events_keys.c	*/
 void	key_translate(int key, t_fdf *data);
 void	key_dgr(int key, t_fdf *data);
 void	key_clr(int key, t_fdf *data);
 void	key_zoom(int key, t_fdf *data);
 
-/* event_mouse.c	*/
+/*	event_mouse.c	*/
 int		close_win(t_fdf *data);
 
 /*	utils.c	*/
 void	init_vars(t_fdf *data);
 void	error_input();
-void	error_file(t_fdf *data, int fd);
+void	error_file(t_fdf *data, int fd, int flg);
 void	free_data(t_fdf *data);
 
 #endif

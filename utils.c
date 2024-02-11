@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 17:58:11 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:35:53 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ void	error_input(void)
 	exit(1);
 }
 
-void	error_file(t_fdf *data, int fd)
+void	error_file(t_fdf *data, int fd, int flg)
 {
-	perror("Error");
+	if (!flg)
+		perror("Error");
+	else
+		ft_printf("Error: Invalid map\n");
 	close(fd);
 	free(data);
-	exit(1); //change depending on error case
+	exit(0); //change depending on error case
 }
 
 void	free_data(t_fdf *data)

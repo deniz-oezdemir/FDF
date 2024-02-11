@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 18:21:41 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:35:05 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	file_to_list(char *file, t_fdf *data)
 	data->z_list = NULL;
 	fd = open(file, O_RDONLY, 0);
 	if (fd < 0)
-		error_file(data, fd);
+		error_file(data, fd, 0);
 	ft_printf("file_to_list\n"); //to be deleted
 	line = get_next_line(fd);
 	if(!line || !ft_isprint(line[0])) //empty space at beginning of file/line?
-		error_file(data, fd); //add error case empty file
+		error_file(data, fd, 1); //add error case empty file
 	while (line && ft_isprint(line[0])) //why do some maps have empty space at the end? or does gnl not work properly?
 	{
 		new = ft_lstnew(line);
