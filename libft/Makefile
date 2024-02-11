@@ -6,7 +6,7 @@
 #    By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 16:01:54 by denizozd          #+#    #+#              #
-#    Updated: 2024/02/03 10:57:01 by denizozd         ###   ########.fr        #
+#    Updated: 2024/02/11 18:33:38 by denizozd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strle
 	ft_lstclear.c ft_lstiter.c ft_lstmap.c\
 	ft_printf.c print_char.c print_str.c print_ptr.c print_int.c print_uns.c print_hex.c\
 	ft_error.c\
-	get_next_line.c\
+	get_next_line.c gnl_strjoin.c\
 
 OBJS = ${SRCS:.c=.o}
 

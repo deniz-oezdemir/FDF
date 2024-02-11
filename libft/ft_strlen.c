@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:27:18 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/03 10:49:05 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 18:24:54 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlen(const char *s)
 	if (!s)
 		return (0);
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i])
 		i++;
 	return (i);
 }

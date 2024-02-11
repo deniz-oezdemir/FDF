@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   gnl_strjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 16:16:43 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 18:24:43 by denizozd         ###   ########.fr       */
+/*   Created: 2024/02/11 18:32:27 by denizozd          #+#    #+#             */
+/*   Updated: 2024/02/11 18:33:09 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_strjoin(char *s1, char const *s2)
 {
-	if (s == NULL)
+	char	*dst;
+	size_t	len1;
+	size_t	len2;
+
+	if (!s1 && !s2)
 		return (NULL);
-	while (*s != (unsigned char)c)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	dst = (char *)malloc((len1 + len2 + 1) * sizeof(char));
+	if (!dst)
 	{
-		if (*s == 0)
-			return (NULL);
-		s++;
+		if (s1)
+			free(s1);
+		return (NULL);
 	}
-	return ((char *)s);
+	dst[len1 + len2] = '\0';
+	while (len2--)
+		dst[len1 + len2] = s2[len2];
+	while (len1--)
+		dst[len1] = s1[len1];
+	if (s1)
+		free(s1);
+	return (dst);
 }
-/* returns pointer to first occurrence of c in str, or NULL if c not found */

@@ -1,15 +1,32 @@
 file_to_list
-new node's content: 0 0 0
-last node's content: 0 0 0
-new node's content: 0 0 1
-last node's content: 0 0 1
-test last node's content: 0 0 1
+new node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+last node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+new node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+last node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+new node's content: 0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
+last node's content: 0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
+new node's content: 0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+last node's content: 0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+new node's content: 0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+last node's content: 0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0
+new node's content: 0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0
+last node's content: 0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0
+new node's content: 0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0
+last node's content: 0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0
+new node's content: 0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0
+last node's content: 0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0
+new node's content: 0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0
+last node's content: 0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0
+new node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+last node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+new node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+last node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+test last node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 
-list size: 2
-height: 2
-width: 3
-before lstclear: first node's content: 0 0 0
-before lstclear: last node's content: 0 0 1
-
-before lstclear: z_list ptr: -944336032
+list size: 11
+height: 11
+width: 19
+before lstclear: first node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+before lstclear: last node's content: 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+before lstclear: z_list ptr: 80983408
 after lstclear: z_list ptr: 0

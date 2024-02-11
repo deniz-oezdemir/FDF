@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 11:19:10 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 18:34:02 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ char	*extract_excess(char *line)
 	char	*excess;
 
 	eol = ft_strchr(line, '\n');
-	if (!eol++)
+	if (eol == NULL)
 		return (NULL);
+	eol++;
 	excess = ft_strdup(eol);
 	*eol = '\0';
 	return (excess);
@@ -52,7 +53,7 @@ char	*read_buffer(char *line, int fd)
 			return (NULL);
 		}
 		buf[nb] = '\0';
-		line = ft_strjoin(line, buf);
+		line = gnl_strjoin(line, buf);
 	}
 	return (line);
 }

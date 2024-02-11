@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:17 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 17:53:39 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/11 18:21:41 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	file_to_list(char *file, t_fdf *data)
 	close(fd);
 }
 
-void	get_height(t_fdf *data)
+void	get_height(t_fdf *data) //use ft_lstsize instead
 {
 	t_list	*tmp;
 	int		height;
