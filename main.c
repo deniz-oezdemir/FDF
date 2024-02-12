@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 13:01:18 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:03:16 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	if (ac != 2 || !av[1])
 		error_input();
 	data = (t_fdf *)malloc(sizeof(t_fdf));
-	init_vars(data);
+	init_vars(data, 0);
 	file_to_list(av[1], data);
 	list_to_matrix(data);
 	data->mlx_ptr = mlx_init();

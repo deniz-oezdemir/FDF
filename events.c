@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 11:29:20 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:03:52 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	handle_keys(int key, t_fdf *data)
 	else if (key == KEY_Q || key == KEY_E)
 		key_dgr(key, data);
 	else if (key == KEY_R)
-		init_vars(data);
+		init_vars(data, 1);
 	else if (key == KEY_ESC)
 	{
 		free_data(data);

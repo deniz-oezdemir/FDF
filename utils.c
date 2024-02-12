@@ -6,14 +6,21 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 14:44:14 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:04:28 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	init_vars(t_fdf *data)
+void	init_vars(t_fdf *data, int flg)
 {
+	if (!flg)
+	{
+		data->mlx_ptr = NULL;
+		data->win_ptr = NULL;
+		data->img_ptr = NULL;
+		data->img_data = NULL;
+	}
 	data->d_x = W_W / 3;
 	data->d_y = W_H / 3;
 	data->scale = 1;

@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 13:34:47 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:03:46 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	key_scale(int key, t_fdf *data);
 int		close_win(t_fdf *data);
 
 /*	utils.c	*/
-void	init_vars(t_fdf *data);
+void	init_vars(t_fdf *data, int flg);
 void	error_input(void);
 void	error_file(t_fdf *data, int fd, int flg);
 void	free_data(t_fdf *data);
