@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:14 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 11:45:20 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:01:18 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,6 @@ int	main(int ac, char **av)
 	init_vars(data);
 	file_to_list(av[1], data);
 	list_to_matrix(data);
-
-/*print matrix containing map (test to be deleted)
-	int i;
-	int j;
-	i = 0;
-	while(i < data->height)
-	{
-		j = 0;
-		while(j < data->width)
-		{
-			ft_printf("%d", data->z_mtx[i][j]);
-			ft_printf("\t");
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}*/
-
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, W_W, W_H, "FDF");
 	data->img_ptr = mlx_new_image(data->mlx_ptr, W_W, W_H);

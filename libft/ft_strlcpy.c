@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:06:11 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 11:20:11 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:06:44 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
+	size_t	i;
 
-	size_t	len;
-
-	len = ft_strlen(src);
-	if (len + 1 < size)
-		ft_memcpy(dst, src, len + 1);
-	else if (size)
-	{
-		ft_memcpy(dst, src, size - 1);
-		dst[size - 1] = '\0';
-	}
-	return (len);
-
-	/*size_t	i;
 	if (!size)
 		return (ft_strlen(src));
 	i = 0;
@@ -37,5 +25,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 	}
 	dst[i] = '\0';
-	return (ft_strlen(src));*/
+	return (ft_strlen(src));
 }

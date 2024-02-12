@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 11:45:55 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:00:36 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct s_fdf
 
 /*	get_map.c	*/
 void	file_to_list(char *file, t_fdf *data);
-void	get_height(t_fdf *data);
 void	get_width(t_fdf *data);
 void	list_to_matrix(t_fdf *data);
 void	fill_row(int *z_mtx_row, char *z_str);
@@ -80,7 +79,7 @@ void	custom_mlx_pixel_put(t_fdf *data, int x1, int y1, int clr);
 
 /*	calculations.c	*/
 void	isometric(t_fdf *data, int z, int z1);
-void	zoom(t_fdf *data) ;
+void	zoom(t_fdf *data);
 void	translate(t_fdf *data);
 void	clr(t_fdf *data, int z1, int z2);
 void	scale(t_fdf *data);
@@ -101,7 +100,7 @@ int		close_win(t_fdf *data);
 
 /*	utils.c	*/
 void	init_vars(t_fdf *data);
-void	error_input();
+void	error_input(void);
 void	error_file(t_fdf *data, int fd, int flg);
 void	free_data(t_fdf *data);
 

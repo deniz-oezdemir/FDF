@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:43:43 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 12:02:25 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:30:26 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ static float	get_max_abs(float x, float y)
 		return (y);
 }
 
+/* Validate if the coordinates are within the image boundaries.
+Calculate the memory address corresponding to the pixel at the given coordinates.
+Set the color value of the pixel at this memory address. */
 void	custom_mlx_pixel_put(t_fdf *data, int x1, int y1, int clr)
 {
 	char	*dst;

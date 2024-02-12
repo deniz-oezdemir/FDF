@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 11:45:13 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:14:21 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	init_vars(t_fdf *data)
 {
 	data->d_x = W_W / 3;
 	data->d_y = W_H / 3;
+	data->scale = 2;
 	data->zoom = 40;
 	data->dgr = 0.8;
 	data->clr = 0xf2f2f2;
@@ -24,7 +25,6 @@ void	init_vars(t_fdf *data)
 	data->x1 = 0;
 	data->x2 = 0;
 	data->y2 = 0;
-	data->scale = 1;
 }
 
 void	error_input(void)
@@ -41,17 +41,14 @@ void	error_file(t_fdf *data, int fd, int flg)
 		ft_printf("Error: Invalid map\n");
 	close(fd);
 	free(data);
-	exit(0); //change depending on error case
+	exit(0);
 }
 
 void	free_data(t_fdf *data)
 {
 	int	i;
-	ft_printf("before lstclear: first node's content: %s", data->z_list->content);
-	ft_printf("before lstclear: last node's content: %s", ft_lstlast(data->z_list)->content);
-	ft_printf("before lstclear: z_list ptr: %d\n", data->z_list);
+
 	ft_lstclear(&(data->z_list), &free);
-	ft_printf("after lstclear: z_list ptr: %d\n", data->z_list);
 	i = 0;
 	while (i < data->height)
 		free(data->z_mtx[i++]);
