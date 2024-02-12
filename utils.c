@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 13:38:59 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:44:14 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,13 @@ void	free_data(t_fdf *data)
 	while (i < data->height)
 		free(data->z_mtx[i++]);
 	free(data->z_mtx);
-	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	if (data->img_ptr != NULL)
+		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+	if (data->win_ptr != NULL)
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	if (data->mlx_ptr != NULL)
+		mlx_destroy_display(data->mlx_ptr);
+	if (data->mlx_ptr != NULL)
+		free(data->mlx_ptr);
 	free(data);
 }
