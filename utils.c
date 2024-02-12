@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 21:35:53 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:45:13 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_vars(t_fdf *data)
 	data->x1 = 0;
 	data->x2 = 0;
 	data->y2 = 0;
+	data->scale = 1;
 }
 
 void	error_input(void)

@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 20:12:57 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 19:28:00 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:46:11 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,13 @@ void	key_zoom(int key, t_fdf *data)
 		data->zoom += 2;
 	else if (key == KEY_X)
 		data->zoom -= 2;
+}
+
+void	key_scale(int key, t_fdf *data)
+{
+	if (key == KEY_K)
+		data->scale += 1;
+	else if (key == KEY_L)
+		if(data->scale > 1)
+			data->scale -= 1;
 }

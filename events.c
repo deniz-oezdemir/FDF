@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 18:51:01 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:29:20 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	handle_keys(int key, t_fdf *data)
 {
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		key_translate(key, data);
+	else if (key == KEY_K || key == KEY_L)
+		key_scale(key, data);
 	else if (key == KEY_Z || key == KEY_X)
 		key_zoom(key, data);
 	else if (key == KEY_P)

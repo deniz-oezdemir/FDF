@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/11 21:34:52 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:45:55 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "libft/libft.h"
-# include "mlx/mlx.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -29,6 +29,8 @@
 # define KEY_P		112
 # define KEY_Q		113
 # define KEY_E		101
+# define KEY_K		107
+# define KEY_L		108
 # define KEY_R		114
 # define KEY_ESC	65307
 
@@ -45,6 +47,7 @@ typedef struct s_fdf
 	int		**z_mtx;
 	int		d_x;
 	int		d_y;
+	float	scale;
 	float	zoom;
 	double	dgr;
 	int		clr;
@@ -80,6 +83,7 @@ void	isometric(t_fdf *data, int z, int z1);
 void	zoom(t_fdf *data) ;
 void	translate(t_fdf *data);
 void	clr(t_fdf *data, int z1, int z2);
+void	scale(t_fdf *data);
 
 /*	events.c	*/
 void	handle_mouse(t_fdf *data);
@@ -90,6 +94,7 @@ void	key_translate(int key, t_fdf *data);
 void	key_dgr(int key, t_fdf *data);
 void	key_clr(int key, t_fdf *data);
 void	key_zoom(int key, t_fdf *data);
+void	key_scale(int key, t_fdf *data);
 
 /*	event_mouse.c	*/
 int		close_win(t_fdf *data);

@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:43:43 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/09 19:23:38 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:46:22 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ void	draw_line(t_fdf *data)
 	int		z1;
 	int		z2;
 
-	z1 = data->z_mtx[(int)data->y1][(int)data->x1];
-		// access value in matrix by row then column
-	z2 = data->z_mtx[(int)data->y2][(int)data->x2];
+	z1 = data->z_mtx[(int)data->y1][(int)data->x1] * data->scale;	// access value in matrix by row then column
+	z2 = data->z_mtx[(int)data->y2][(int)data->x2] * data->scale;
 	zoom(data);
 	clr(data, z1, z2);
 	isometric(data, z1, z2);
