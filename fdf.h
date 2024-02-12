@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:42:10 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 13:00:36 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:34:47 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	isometric(t_fdf *data, int z, int z1);
 void	zoom(t_fdf *data);
 void	translate(t_fdf *data);
 void	clr(t_fdf *data, int z1, int z2);
-void	scale(t_fdf *data);
 
 /*	events.c	*/
 void	handle_mouse(t_fdf *data);

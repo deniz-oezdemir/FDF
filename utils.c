@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:57:13 by denizozd          #+#    #+#             */
-/*   Updated: 2024/02/12 13:14:21 by denizozd         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:38:59 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_vars(t_fdf *data)
 {
 	data->d_x = W_W / 3;
 	data->d_y = W_H / 3;
-	data->scale = 2;
+	data->scale = 1;
 	data->zoom = 40;
 	data->dgr = 0.8;
 	data->clr = 0xf2f2f2;
