@@ -32,4 +32,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 }
 /* copies maximum n bytes from src to dest */
 /* works like strcpy, but takes void * as parameter, i.e. any type of pointer */
-/* caution: undefined behavior if src and dest overlap (use memove instead) */
+/* caution: undefined behavior if src and dest overlap (use memmove instead) */

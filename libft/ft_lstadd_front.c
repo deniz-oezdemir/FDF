@@ -19,5 +19,5 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-/* adds new element to the front of existing lsit */
+/* adds new element to the front of existing list */
 /* sets pointer to existing list to point to new element */

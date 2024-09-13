@@ -24,16 +24,22 @@ MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11 -lm
 
 all: $(NAME)
 
-makelibft:
-	make -C $(LIBFTPATH)
-	cp $(LIBFTPATH)/$(LIBFTNAME) .
-	mv $(LIBFTNAME) $(NAME)
+libft:
+	@if [ ! -f $(LIBFTPATH)/libft.a ]; then \
+		git submodule update --init --recursive; \
+	fi
 
-$(NAME): makelibft $(OBJS)
+	@if [ ! -f $(LIBFTPATH)/libft.a ]; then \
+		make -s -C $(LIBFTPATH); \
+	fi
+
+mlx:
 	if [ ! -d "mlx" ]; then \
 	git clone https://github.com/42Paris/minilibx-linux.git mlx; \
 	fi
 	make -C $(MLX_LIB)
+
+$(NAME): libft mlx $(OBJS)
 	$(CC) $(OBJS) -L./libft -lft $(MLX_FLAGS) -o $(NAME)
 
 %.o: %.c

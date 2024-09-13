@@ -34,4 +34,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 }
 /* copies n bytes from string src to string dest */
 /* copying is non-destructive (compare memcpy) */
-/* caution: n-- before copying in while loop */

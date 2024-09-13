@@ -24,5 +24,5 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (size);
 }
-/* uses the pointer lst to iterate throught the list and count its elements */
+/* iterates throught the list and count its elements */
 /* does not modify the list */

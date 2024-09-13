@@ -24,4 +24,4 @@ t_list	*ft_lstnew(void *content)
 	return (new);
 }
 /* allocates memory for new node of type t_list */
-/* sets its content to parameter content and next to NULL */
+/* assigns its content and sets next to NULL */
