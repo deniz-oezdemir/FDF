@@ -16,7 +16,12 @@ For the detailed requirements, please refer to the [subject](./en.subject.pdf).
 
 To install Fdf, follow these steps:
 
-1. Clone the repository from GitHub, navigate to the directory, build the pipex executable:
+1. Install miniLibX dependencies as this program uses miniLibX, a simple X-Window (X11R6) programming API.
+	```
+	sudo apt-get install -y libxext-dev libxrandr-dev libx11-dev libbsd-dev libssl-dev
+	```
+
+2. Clone this repository from GitHub, navigate to the directory, build the pipex executable:
 
     ```
     git clone https://github.com/deniz-oezdemir/FDF
@@ -24,13 +29,13 @@ To install Fdf, follow these steps:
     make
     ```
 
-2. Run fdf with the desired map as input, e.g.:
+3. Run fdf with the desired map as input, e.g.:
 
     ```
     ./fdf maps/42.fdf
     ```
 
-3. Manipulate the object using the following keys:
+4. Manipulate the object using the following keys:
 	* translate:	w, a, s, d
 	* zoom:			z, x
 	* scale:		k, l
